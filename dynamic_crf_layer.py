@@ -40,9 +40,6 @@ class DynamicCRF(nn.Module):
         return scores.sum(-1)
 
     def _compute_normalizer(self, emissions, targets=None, masks=None, beam=None):
-        # HACK: we include "target" which is a hueristic for training
-        # HACK: we use a beam of tokens to approximate the normalizing factor (which is bad?)
-
         beam = beam if beam is not None else self.beam
         batch_size, seq_len = emissions.size()[:2]
         if targets is not None:
@@ -73,8 +70,6 @@ class DynamicCRF(nn.Module):
         return logsumexp(score, dim=1)
 
     def _viterbi_decode(self, emissions, masks=None, beam=None):
-        # HACK: we use a beam of tokens to approximate the normalizing factor (which is bad?)
-
         beam = beam if beam is not None else self.beam
         batch_size, seq_len = emissions.size()[:2]
         beam_emission_scores, beam_targets = emissions.topk(beam, 2)
