@@ -12,5 +12,16 @@ pip install -r requirements.txt
 ```
 To install pyrouge, please refer to this [link](https://sagor-sarker.medium.com/how-to-install-rouge-pyrouge-in-ubuntu-16-04-7f0ec1cda81b)
 
+## 2. Download Gigawords Data [here](https://drive.google.com/file/d/1Jx9yfx45UJmFsO6y9lBlkGshPD3tF8Xy/view?usp=sharing):
+```yaml
+unzip data.zip and replace it with the empty ./data folder.
+```
 
+## 3. Training
+```yaml
+```
+```yaml
+chmod +x ./train.sh
+./train.sh
+```
 
