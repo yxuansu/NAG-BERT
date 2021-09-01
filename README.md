@@ -1,5 +1,6 @@
 # NAG-BERT
 [Non-Autoregressive Text Generation with Pre-trained Language Models](https://arxiv.org/abs/2102.08220)
+
 Authors: Yixuan Su, Deng Cai, Yan Wang, David Vandyke, Simon Baker, Piji Li, and Nigel Collier
 
 ## Introduction:
