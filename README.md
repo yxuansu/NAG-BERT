@@ -19,8 +19,6 @@ unzip data.zip and replace it with the empty ./data folder.
 
 ## 3. Training
 ```yaml
-```
-```yaml
 chmod +x ./train.sh
 ./train.sh
 ```
