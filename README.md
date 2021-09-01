@@ -9,9 +9,8 @@ In this repository, we provide the related resources to our paper. We provide tr
 ## 1. Enviornment Installtion:
 ```yaml
 pip install -r requirements.txt
-
-To install pyrouge, please refer to this [link](https://sagor-sarker.medium.com/how-to-install-rouge-pyrouge-in-ubuntu-16-04-7f0ec1cda81b)
 ```
+To install pyrouge, please refer to this [link](https://sagor-sarker.medium.com/how-to-install-rouge-pyrouge-in-ubuntu-16-04-7f0ec1cda81b)
 
 
 
