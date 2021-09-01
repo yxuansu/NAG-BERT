@@ -25,3 +25,13 @@ chmod +x ./train.sh
 ./train.sh
 ```
 
+## 4. Inference
+```yaml
+```
+```yaml
+chmod +x ./inference.sh
+./inference.sh
+
+You can change the $\alpha$
+```
+
