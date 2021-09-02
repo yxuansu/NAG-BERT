@@ -175,14 +175,19 @@ class Data:
                     curr_idx = self.train_current_idx + i
                     one_inp_token_list = self.train_article_list[self.train_idx_list[curr_idx]]
                     one_inp_token_list = [CLS] + one_inp_token_list + [SEP]
-                    batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
-
+                    
                     one_tgt_token_list = self.train_title_list[self.train_idx_list[curr_idx]]
-                    batch_truth_list.append(' '.join(one_tgt_token_list).strip())
+                    one_ref_token_list = one_tgt_token_list.copy()
 
                     one_tgt_token_list = one_tgt_token_list + [EOS] + [EOS] # two EOS for CRF learning
-                    batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
-                    assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                    try:
+                        assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                        batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
+                        batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
+                        batch_truth_list.append(' '.join(one_ref_token_list).strip())
+                    except AssertionError:
+                        continue
+                    
                 self.train_current_idx += batch_size
             else:
                 len_diff = self.train_num - self.train_current_idx
@@ -193,25 +198,33 @@ class Data:
                         curr_idx = 0
                         one_inp_token_list = self.train_article_list[self.train_idx_list[curr_idx]]
                         one_inp_token_list = [CLS] + one_inp_token_list + [SEP]
-                        batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
-
+                        
                         one_tgt_token_list = self.train_title_list[self.train_idx_list[curr_idx]]
-                        batch_truth_list.append(' '.join(one_tgt_token_list).strip())
+                        one_ref_token_list = one_tgt_token_list.copy()
 
                         one_tgt_token_list = one_tgt_token_list + [EOS] + [EOS] # two EOS for CRF learning
-                        batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
-                        assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                        try:
+                            assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                            batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
+                            batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
+                            batch_truth_list.append(' '.join(one_ref_token_list).strip())
+                        except AssertionError:
+                            continue
                     else:
                         one_inp_token_list = self.train_article_list[self.train_idx_list[curr_idx]]
                         one_inp_token_list = [CLS] + one_inp_token_list + [SEP]
-                        batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
-
+                        
                         one_tgt_token_list = self.train_title_list[self.train_idx_list[curr_idx]]
-                        batch_truth_list.append(' '.join(one_tgt_token_list).strip())
+                        one_ref_token_list = one_tgt_token_list.copy()
 
                         one_tgt_token_list = one_tgt_token_list + [EOS] + [EOS] # two EOS for CRF learning
-                        batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
-                        assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                        try:
+                            assert len(one_inp_token_list) >= len(one_tgt_token_list)
+                            batch_inp_list.append(self.vocab.convert_tokens_to_ids(one_inp_token_list))
+                            batch_tgt_list.append(self.tgt_vocab.tokentoidx(one_tgt_token_list))
+                            batch_truth_list.append(' '.join(one_ref_token_list).strip())
+                        except AssertionError:
+                            continue
                 self.train_current_idx = 0
 
         elif mode == 'dev':
