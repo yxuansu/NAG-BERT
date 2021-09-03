@@ -4,7 +4,7 @@
 Authors: Yixuan Su, Deng Cai, Yan Wang, David Vandyke, Simon Baker, Piji Li, and Nigel Collier
 
 ## Introduction:
-In this repository, we provide the related resources to our paper. We provide training and inference code for text summarization task.
+In this repository, we provide the related resources to our EACL 2021 paper. We provide training and inference code for text summarization task.
 
 ## 1. Enviornment Installtion:
 ```yaml
